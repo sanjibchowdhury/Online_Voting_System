@@ -81,7 +81,12 @@ const AdminPanel = () => {
         setError('');
         setIsSubmitting(true);
         try {
-            await api.post('/elections/add', newElection);
+        const submissionData = {
+            ...newElection,
+            startTime: new Date(newElection.startTime).toISOString(),
+            endTime: new Date(newElection.endTime).toISOString(),
+        };
+        await api.post('/elections/add', submissionData);
             setNewElection({ title: '', description: '', startTime: '', endTime: '' });
             await fetchElections();
         } catch (err) {

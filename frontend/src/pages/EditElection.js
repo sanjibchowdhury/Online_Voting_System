@@ -38,8 +38,10 @@ const EditElection = () => {
         setIsSubmitting(true);
         setError('');
         try {
-           
-            const payload = { ...formData };
+            const payload = {
+            ...formData,
+            endTime: new Date(formData.endTime).toISOString(),
+        };
             if (new Date(payload.endTime) > new Date()) {
                 payload.status = 'active';
             }
