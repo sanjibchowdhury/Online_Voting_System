@@ -22,7 +22,7 @@ const RegisterPage = () => {
     setError("");
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/users/register", {
+      await axios.post("https://online-voting-system-beta-mocha.vercel.app/api/users/register", {
         username: formData.username,
         email: formData.email,
         password: formData.password,
