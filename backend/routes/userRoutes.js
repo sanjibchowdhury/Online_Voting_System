@@ -134,7 +134,7 @@ router.post('/forgot-password', async (req, res) => {
             to: user.email,
             subject: 'Password Reset Request',
             text: `Please click on the following link to reset your password:\n\n` +
-                  `http://localhost:3000/reset-password/${token}\n\n` +
+                  `https://online-voting-system-45.vercel.app/reset-password/${token} \n\n` +
                   `If you did not request this, please ignore this email.\n`
         };
         await transporter.sendMail(mailOptions);
